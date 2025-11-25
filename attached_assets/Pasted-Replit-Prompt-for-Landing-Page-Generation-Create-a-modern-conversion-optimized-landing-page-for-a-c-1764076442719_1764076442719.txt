@@ -1,0 +1,144 @@
+Replit Prompt for Landing Page Generation
+Create a modern, conversion-optimized landing page for a comprehensive business services agency targeting Australian founders and startups.
+Business Overview
+Agency Name: [Your Agency Name]
+Tagline: "Launch Your Business in 30 Days - All Services, One Partner"
+Value Proposition: A one-stop agency that eliminates the coordination nightmare for new founders by providing all essential business services (except funding) under one roof - from brand design and web development to legal documentation and bookkeeping.
+Page Structure & Sections
+1. Hero Section
+
+Bold headline: "Stop Juggling 5-8 Vendors. Launch Your Business in 30 Days."
+Subheadline: "Australia's first all-in-one agency for founders who want professional results without the fragmentation, cost shocks, or coordination headaches."
+Primary CTA button: "Get Your 30-Day Launch Plan"
+Secondary CTA: "See How It Works"
+Hero image/illustration: Show a stressed founder surrounded by multiple vendor logos transforming into one streamlined solution
+
+2. Problem Section ("The $20 Billion Fragmentation Problem")
+
+Statistic callouts in cards:
+
+"5-8 different vendors just to launch"
+"60% of founders face cash flow challenges"
+"Cost shock: $2K quoted → $8K spent"
+"3-6 month timelines with zero coordination"
+
+
+Pain point quotes from real founders (use the testimonial style format)
+
+3. Solution Section ("One Partner. Complete Launch.")
+
+Visual timeline showing "Launch in 30 Days" process:
+
+Week 1: Company Registration + Legal Foundation
+Week 2: Brand Strategy + Design System
+Week 3: Website Development + Digital Setup
+Week 4: Marketing Launch + Business Operations
+
+
+Highlight the streamlined approach with clear value justification
+Contrast with "Traditional Approach" (3-6+ months, multiple vendors, endless coordination)
+
+4. Services Section
+Grid layout showcasing all services with icons:
+
+Brand Design & Strategy
+Graphic Design
+Web Development
+App Development
+Social Media Management
+Digital Marketing
+Legal Documentation
+Bookkeeping & Accounting
+Company Registration
+
+Each service card should have a brief description and "Learn More" option.
+5. Who We Serve Section
+Display target industries in an elegant card grid:
+
+Solopreneurs
+E-commerce Businesses
+Fashion & Retail
+Hospitality & Food
+Legal Services
+Accounting Firms
+Technology Consulting
+Real Estate Services
+Financial Planning
+
+6. Benefits Section ("Why Choose Us Over Fragmentation")
+Three-column layout:
+
+Integrated Excellence: "Your accountant talks to your lawyer who knows your brand"
+Aligned Incentives: "We succeed when you succeed - ongoing partnership, not one-and-done"
+Predictable Pricing: "No cost shocks. One quote, one invoice, one partner"
+
+7. Social Proof Section
+
+Placeholder for client testimonials (3-4 cards)
+Trust badges/certifications
+"Launched 100+ Australian businesses" counter
+
+8. Pricing Teaser Section
+
+"Transparent, All-Inclusive Packages"
+Three pricing tiers (Starter, Growth, Premium) with brief highlights
+CTA: "View Complete Pricing" or "Get Custom Quote"
+
+9. FAQ Section
+Address common objections:
+
+"How is this different from hiring separate vendors?"
+"What if I only need some services?"
+"Can you really deliver everything in 30 days?"
+"What happens after launch?"
+"How do you handle cash flow concerns?"
+
+10. Final CTA Section
+
+Strong closing headline: "Ready to Launch Without the Chaos?"
+Form to book a free consultation
+Alternative CTA: "Download our Founder's Launch Checklist"
+
+Design Requirements
+Color Scheme:
+
+Professional but approachable (suggest: Deep blue primary, energetic orange/coral accent, clean whites and grays)
+
+Typography:
+
+Modern sans-serif font (Inter, Poppins, or similar)
+Clear hierarchy with bold headlines
+
+Visual Style:
+
+Clean, modern, minimalist
+Use illustrations or abstract graphics rather than stock photos
+Include subtle animations on scroll
+Mobile-responsive design is critical
+
+Key Features:
+
+Sticky navigation bar with CTA
+Smooth scroll animations
+Comparison tables/timelines
+Interactive elements (hover states, animated counters)
+Form validation for lead capture
+Fast loading speed optimization
+
+Tone of Voice
+
+Confident but empathetic
+Address founder pain points directly
+Solution-focused language
+Eliminate jargon
+Conversational yet professional
+
+Technical Requirements
+
+Fully responsive (mobile, tablet, desktop)
+Contact form with email integration
+Analytics tracking ready
+SEO optimized (meta tags, headings structure)
+Fast load times (<3 seconds)
+
+Build this as a single-page application with smooth scrolling between sections, strong visual hierarchy, and clear conversion paths throughout.
