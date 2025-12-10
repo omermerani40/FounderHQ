@@ -1,26 +1,22 @@
 import { motion } from "framer-motion";
 import { 
   Palette, 
-  Layout, 
-  Code, 
-  Smartphone, 
+  Monitor, 
   Share2, 
   Megaphone, 
   Scale, 
-  Calculator, 
-  Building2 
+  Laptop,
+  Bot
 } from "lucide-react";
 
 const services = [
-  { icon: Palette, title: "Brand Strategy", desc: "Logo, visual identity, and brand voice." },
-  { icon: Layout, title: "Graphic Design", desc: "Marketing materials, decks, and assets." },
-  { icon: Code, title: "Web Development", desc: "High-converting, responsive websites." },
-  { icon: Smartphone, title: "App Development", desc: "MVP prototyping and mobile apps." },
-  { icon: Share2, title: "Social Media", desc: "Content strategy and profile management." },
-  { icon: Megaphone, title: "Digital Marketing", desc: "SEO, PPC, and growth campaigns." },
-  { icon: Scale, title: "Legal Docs", desc: "Contracts, terms, and compliance." },
-  { icon: Calculator, title: "Bookkeeping", desc: "Financial setup and tax planning." },
-  { icon: Building2, title: "Registration", desc: "Company formation and structuring." },
+  { icon: Scale, title: "Legal & Compliance", desc: "Contracts, terms, structuring, and regulatory compliance." },
+  { icon: Palette, title: "Brand Design & Strategy", desc: "Logo, visual identity, brand voice, and market positioning." },
+  { icon: Monitor, title: "Digital Presence", desc: "High-converting websites, web apps, and digital footprint." },
+  { icon: Megaphone, title: "Digital Marketing", desc: "SEO, PPC, email marketing, and growth campaigns." },
+  { icon: Share2, title: "Social Media Management", desc: "Content strategy, creation, scheduling, and community engagement." },
+  { icon: Laptop, title: "IT & Tech Support", desc: "Infrastructure setup, security, and ongoing technical assistance." },
+  { icon: Bot, title: "Artificial Intelligence", desc: "AI integration, automation workflows, and custom LLM solutions." },
 ];
 
 export default function Services() {
@@ -36,7 +32,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
           {services.map((service, index) => (
             <motion.div
               key={index}
