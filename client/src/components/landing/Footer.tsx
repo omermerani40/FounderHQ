@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
             <a href="/" className="text-2xl font-heading font-bold text-primary tracking-tighter mb-4 block">
-              Launch<span className="text-accent">Pad</span>.
+              Founder<span className="text-accent">HQ</span>
             </a>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
               The all-in-one launch partner for Australian founders. We replace fragmentation with focus, so you can build the future.
@@ -43,7 +43,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <div>© 2024 LaunchPad Agency. All rights reserved.</div>
+          <div>© 2024 FounderHQ Agency. All rights reserved.</div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-primary">Privacy Policy</a>
             <a href="#" className="hover:text-primary">Terms of Service</a>
