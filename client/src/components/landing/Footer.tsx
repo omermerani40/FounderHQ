@@ -24,10 +24,13 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-primary mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary">Brand Strategy</a></li>
-              <li><a href="#" className="hover:text-primary">Web Development</a></li>
-              <li><a href="#" className="hover:text-primary">Legal Setup</a></li>
-              <li><a href="#" className="hover:text-primary">Financial Ops</a></li>
+              <li><a href="#" className="hover:text-primary">Legal & Compliance</a></li>
+              <li><a href="#" className="hover:text-primary">Brand Design & Strategy</a></li>
+              <li><a href="#" className="hover:text-primary">Digital Presence</a></li>
+              <li><a href="#" className="hover:text-primary">Digital Marketing</a></li>
+              <li><a href="#" className="hover:text-primary">Social Media Management</a></li>
+              <li><a href="#" className="hover:text-primary">IT & Tech Support</a></li>
+              <li><a href="#" className="hover:text-primary">Artificial Intelligence</a></li>
             </ul>
           </div>
 
