@@ -8,6 +8,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  
+  const isServicePage = location.startsWith('/services');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,7 +57,9 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-heading font-bold text-primary tracking-tighter">
+        <Link href="/" className={`text-2xl font-heading font-bold tracking-tighter ${
+          isServicePage && !isScrolled ? "text-white" : "text-primary"
+        }`}>
           Founder<span className="text-accent">HQ</span>
         </Link>
 
@@ -66,7 +70,11 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                isServicePage && !isScrolled 
+                  ? "text-blue-100 hover:text-white" 
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               {link.name}
             </a>
@@ -82,7 +90,7 @@ export default function Navbar() {
 
         {/* Mobile Nav Toggle */}
         <button
-          className="md:hidden text-primary"
+          className={`md:hidden ${isServicePage && !isScrolled ? "text-white" : "text-primary"}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X /> : <Menu />}
