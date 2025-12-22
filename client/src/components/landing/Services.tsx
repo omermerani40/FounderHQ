@@ -11,13 +11,13 @@ import {
 import { Link } from "wouter";
 
 const services = [
-  { icon: Scale, title: "Legal & Compliance", desc: "Contracts, terms, structuring, and regulatory compliance.", href: "#" },
+  { icon: Scale, title: "Legal & Compliance", desc: "Contracts, terms, structuring, and regulatory compliance.", href: "/services/legal-compliance" },
   { icon: Palette, title: "Brand Design & Strategy", desc: "Logo, visual identity, brand voice, and market positioning.", href: "/services/brand-strategy" },
-  { icon: Monitor, title: "Digital Presence", desc: "High-converting websites, web apps, and digital footprint.", href: "#" },
-  { icon: Megaphone, title: "Digital Marketing", desc: "SEO, PPC, email marketing, and growth campaigns.", href: "#" },
-  { icon: Share2, title: "Social Media Management", desc: "Content strategy, creation, scheduling, and community engagement.", href: "#" },
-  { icon: Laptop, title: "IT & Tech Support", desc: "Infrastructure setup, security, and ongoing technical assistance.", href: "#" },
-  { icon: Bot, title: "Artificial Intelligence", desc: "AI integration, automation workflows, and custom LLM solutions.", href: "#" },
+  { icon: Monitor, title: "Digital Presence", desc: "High-converting websites, web apps, and digital footprint.", href: "/services/digital-presence" },
+  { icon: Megaphone, title: "Digital Marketing", desc: "SEO, PPC, email marketing, and growth campaigns.", href: "/services/digital-marketing" },
+  { icon: Share2, title: "Social Media Management", desc: "Content strategy, creation, scheduling, and community engagement.", href: "/services/social-media" },
+  { icon: Laptop, title: "IT & Tech Support", desc: "Infrastructure setup, security, and ongoing technical assistance.", href: "/services/it-support" },
+  { icon: Bot, title: "Artificial Intelligence", desc: "AI integration, automation workflows, and custom LLM solutions.", href: "/services/artificial-intelligence" },
 ];
 
 export default function Services() {
@@ -49,15 +49,9 @@ export default function Services() {
               <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
               <p className="text-muted-foreground mb-4">{service.desc}</p>
               
-              {service.href !== "#" ? (
-                <Link href={service.href} className="text-sm font-semibold text-accent hover:text-accent/80 flex items-center gap-1">
-                  Learn more <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </Link>
-              ) : (
-                <span className="text-sm font-semibold text-muted-foreground/50 cursor-not-allowed flex items-center gap-1">
-                  Coming Soon
-                </span>
-              )}
+              <Link href={service.href} className="text-sm font-semibold text-accent hover:text-accent/80 flex items-center gap-1">
+                Learn more <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </Link>
             </motion.div>
           ))}
         </div>

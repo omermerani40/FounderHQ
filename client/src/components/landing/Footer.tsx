@@ -25,17 +25,41 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-primary mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary">Legal & Compliance</a></li>
+              <li>
+                <Link href="/services/legal-compliance" className="hover:text-primary">
+                  Legal & Compliance
+                </Link>
+              </li>
               <li>
                 <Link href="/services/brand-strategy" className="hover:text-primary">
                   Brand Design & Strategy
                 </Link>
               </li>
-              <li><a href="#" className="hover:text-primary">Digital Presence</a></li>
-              <li><a href="#" className="hover:text-primary">Digital Marketing</a></li>
-              <li><a href="#" className="hover:text-primary">Social Media Management</a></li>
-              <li><a href="#" className="hover:text-primary">IT & Tech Support</a></li>
-              <li><a href="#" className="hover:text-primary">Artificial Intelligence</a></li>
+              <li>
+                <Link href="/services/digital-presence" className="hover:text-primary">
+                  Digital Presence
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/digital-marketing" className="hover:text-primary">
+                  Digital Marketing
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/social-media" className="hover:text-primary">
+                  Social Media Management
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/it-support" className="hover:text-primary">
+                  IT & Tech Support
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/artificial-intelligence" className="hover:text-primary">
+                  Artificial Intelligence
+                </Link>
+              </li>
             </ul>
           </div>
 
