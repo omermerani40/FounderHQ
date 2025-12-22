@@ -6,55 +6,147 @@ import {
   Megaphone, 
   Scale, 
   Laptop,
-  Bot
+  Bot,
+  ArrowUpRight
 } from "lucide-react";
 import { Link } from "wouter";
 
 const services = [
-  { icon: Scale, title: "Legal & Compliance", desc: "Contracts, terms, structuring, and regulatory compliance.", href: "/services/legal-compliance" },
-  { icon: Palette, title: "Brand Design & Strategy", desc: "Logo, visual identity, brand voice, and market positioning.", href: "/services/brand-strategy" },
-  { icon: Monitor, title: "Digital Presence", desc: "High-converting websites, web apps, and digital footprint.", href: "/services/digital-presence" },
-  { icon: Megaphone, title: "Digital Marketing", desc: "SEO, PPC, email marketing, and growth campaigns.", href: "/services/digital-marketing" },
-  { icon: Share2, title: "Social Media Management", desc: "Content strategy, creation, scheduling, and community engagement.", href: "/services/social-media" },
-  { icon: Laptop, title: "IT & Tech Support", desc: "Infrastructure setup, security, and ongoing technical assistance.", href: "/services/it-support" },
-  { icon: Bot, title: "Artificial Intelligence", desc: "AI integration, automation workflows, and custom LLM solutions.", href: "/services/artificial-intelligence" },
+  { 
+    icon: Scale, 
+    title: "Legal & Compliance", 
+    desc: "Contracts, terms, structuring, and regulatory compliance for Australian businesses.",
+    href: "/services/legal-compliance",
+    gradient: "from-blue-500 to-indigo-600"
+  },
+  { 
+    icon: Palette, 
+    title: "Brand Design & Strategy", 
+    desc: "Logo, visual identity, brand voice, and market positioning that commands attention.",
+    href: "/services/brand-strategy",
+    gradient: "from-pink-500 to-rose-600"
+  },
+  { 
+    icon: Monitor, 
+    title: "Digital Presence", 
+    desc: "High-converting websites, web apps, and a digital footprint that drives growth.",
+    href: "/services/digital-presence",
+    gradient: "from-cyan-500 to-blue-600"
+  },
+  { 
+    icon: Megaphone, 
+    title: "Digital Marketing", 
+    desc: "SEO, PPC, email marketing, and growth campaigns that deliver real ROI.",
+    href: "/services/digital-marketing",
+    gradient: "from-orange-500 to-red-600"
+  },
+  { 
+    icon: Share2, 
+    title: "Social Media Management", 
+    desc: "Content strategy, creation, scheduling, and community engagement that builds audiences.",
+    href: "/services/social-media",
+    gradient: "from-violet-500 to-purple-600"
+  },
+  { 
+    icon: Laptop, 
+    title: "IT & Tech Support", 
+    desc: "Infrastructure setup, security, and ongoing technical assistance you can rely on.",
+    href: "/services/it-support",
+    gradient: "from-emerald-500 to-teal-600"
+  },
+  { 
+    icon: Bot, 
+    title: "Artificial Intelligence", 
+    desc: "AI integration, automation workflows, and custom LLM solutions for the future.",
+    href: "/services/artificial-intelligence",
+    gradient: "from-amber-500 to-orange-600"
+  },
 ];
 
 export default function Services() {
   return (
-    <section className="py-24 bg-background" id="services">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
-            Everything You Need. Under One Roof.
+    <section className="py-28 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden" id="services">
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
+          <span className="inline-block px-4 py-1.5 mb-6 bg-primary/10 text-primary font-semibold rounded-full text-sm">
+            Our Services
+          </span>
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight">
+            Everything You Need.{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              Under One Roof.
+            </span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Stop coordinating between 5 different freelancers. We handle it all.
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            Stop coordinating between 5 different freelancers. We handle every aspect of your business launch with one dedicated team.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="group p-8 rounded-2xl bg-white border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300 relative"
+              transition={{ delay: index * 0.08, duration: 0.5 }}
             >
-              <div className="w-12 h-12 bg-primary/5 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                <service.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-4">{service.desc}</p>
-              
-              <Link href={service.href} className="text-sm font-semibold text-accent hover:text-accent/80 flex items-center gap-1">
-                Learn more <span className="group-hover:translate-x-1 transition-transform">→</span>
+              <Link href={service.href}>
+                <div className="group h-full p-8 rounded-3xl bg-white border border-gray-100 hover:border-transparent hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative overflow-hidden cursor-pointer">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="relative z-10">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <service.icon className="w-7 h-7 text-white" />
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-primary group-hover:text-white mb-3 transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground group-hover:text-blue-100 mb-6 leading-relaxed transition-colors duration-300">
+                      {service.desc}
+                    </p>
+                    
+                    <div className="flex items-center gap-2 text-accent group-hover:text-white font-semibold transition-colors duration-300">
+                      <span>Explore service</span>
+                      <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                    </div>
+                  </div>
+                </div>
               </Link>
             </motion.div>
           ))}
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <p className="text-muted-foreground">
+            Need a custom solution?{" "}
+            <a 
+              href="/#contact" 
+              className="text-accent font-semibold hover:underline"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Let's talk about your project →
+            </a>
+          </p>
+        </motion.div>
       </div>
     </section>
   );
