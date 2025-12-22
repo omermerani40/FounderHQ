@@ -27,11 +27,22 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-accent text-white hover:bg-accent/90 rounded-full px-8 h-14 text-lg shadow-lg shadow-accent/25">
+              <Button 
+                size="lg" 
+                className="bg-accent text-white hover:bg-accent/90 rounded-full px-8 h-14 text-lg shadow-lg shadow-accent/25"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                data-testid="button-get-launch-plan"
+              >
                 Get Your 30-Day Launch Plan
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full px-8 h-14 text-lg border-2 hover:bg-muted/50">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="rounded-full px-8 h-14 text-lg border-2 hover:bg-muted/50"
+                onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
+                data-testid="button-see-how-it-works"
+              >
                 <PlayCircle className="mr-2 h-5 w-5" />
                 See How It Works
               </Button>
