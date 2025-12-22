@@ -27,9 +27,9 @@ export default function Navbar() {
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    const [path, hash] = href.split('#');
+    const [, hash] = href.split('#');
     
-    if (location === '/' || path === '/') {
+    if (location === '/') {
       e.preventDefault();
       const element = document.getElementById(hash);
       if (element) {
