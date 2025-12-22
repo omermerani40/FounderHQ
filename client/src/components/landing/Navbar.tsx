@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +18,35 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "#services" },
-    { name: "Process", href: "#process" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Services", href: "/#services" },
+    { name: "Process", href: "/#process" },
+    { name: "Pricing", href: "/#pricing" },
+    { name: "FAQ", href: "/#faq" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const [path, hash] = href.split('#');
+    
+    if (location === '/' || path === '/') {
+      e.preventDefault();
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  const scrollToContact = () => {
+    if (location === '/') {
+      const ctaSection = document.getElementById('contact');
+      if (ctaSection) {
+        ctaSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/#contact';
+    }
+  };
 
   return (
     <nav
@@ -40,12 +65,17 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6">
+          <Button 
+            onClick={scrollToContact}
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6"
+            data-testid="button-get-started"
+          >
             Get Started
           </Button>
         </div>
@@ -73,13 +103,16 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="text-lg font-medium text-foreground py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </a>
               ))}
-              <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full mt-4">
+              <Button 
+                onClick={scrollToContact}
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full mt-4"
+              >
                 Get Started
               </Button>
             </div>

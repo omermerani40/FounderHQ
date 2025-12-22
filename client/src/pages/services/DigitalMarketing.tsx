@@ -27,7 +27,11 @@ export default function DigitalMarketing() {
               <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-lg leading-relaxed">
                 Data-driven marketing strategies that actually move the needle. From SEO to paid ads, we drive qualified traffic that converts.
               </p>
-              <Button size="lg" className="bg-accent text-primary hover:bg-accent/90 rounded-full px-8 h-12 font-bold">
+              <Button 
+                size="lg" 
+                className="bg-accent text-primary hover:bg-accent/90 rounded-full px-8 h-12 font-bold"
+                onClick={() => document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 View Packages
               </Button>
             </motion.div>
@@ -68,7 +72,7 @@ export default function DigitalMarketing() {
         </div>
       </section>
 
-      <section className="py-24 bg-secondary/20">
+      <section id="packages" className="py-24 bg-secondary/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
