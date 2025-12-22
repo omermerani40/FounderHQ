@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation, useRoute } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,6 +47,12 @@ export default function Navbar() {
       }
     } else {
       window.location.href = '/#contact';
+      setTimeout(() => {
+        const ctaSection = document.getElementById('contact');
+        if (ctaSection) {
+          ctaSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   };
 
