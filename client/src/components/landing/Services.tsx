@@ -50,10 +50,8 @@ export default function Services() {
               <p className="text-muted-foreground mb-4">{service.desc}</p>
               
               {service.href !== "#" ? (
-                <Link href={service.href}>
-                  <a className="text-sm font-semibold text-accent hover:text-accent/80 flex items-center gap-1">
-                    Learn more <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </a>
+                <Link href={service.href} className="text-sm font-semibold text-accent hover:text-accent/80 flex items-center gap-1">
+                  Learn more <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
               ) : (
                 <span className="text-sm font-semibold text-muted-foreground/50 cursor-not-allowed flex items-center gap-1">

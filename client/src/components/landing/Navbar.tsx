@@ -30,10 +30,8 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link href="/">
-          <a className="text-2xl font-heading font-bold text-primary tracking-tighter">
-            Founder<span className="text-accent">HQ</span>
-          </a>
+        <Link href="/" className="text-2xl font-heading font-bold text-primary tracking-tighter">
+          Founder<span className="text-accent">HQ</span>
         </Link>
 
         {/* Desktop Nav */}

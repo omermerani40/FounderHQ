@@ -7,10 +7,8 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-            <Link href="/">
-              <a className="text-2xl font-heading font-bold text-primary tracking-tighter mb-4 block">
-                Founder<span className="text-accent">HQ</span>
-              </a>
+            <Link href="/" className="text-2xl font-heading font-bold text-primary tracking-tighter mb-4 block">
+              Founder<span className="text-accent">HQ</span>
             </Link>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
               The all-in-one launch partner for Australian founders. We replace fragmentation with focus, so you can build the future.
@@ -29,8 +27,8 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#" className="hover:text-primary">Legal & Compliance</a></li>
               <li>
-                <Link href="/services/brand-strategy">
-                  <a className="hover:text-primary">Brand Design & Strategy</a>
+                <Link href="/services/brand-strategy" className="hover:text-primary">
+                  Brand Design & Strategy
                 </Link>
               </li>
               <li><a href="#" className="hover:text-primary">Digital Presence</a></li>

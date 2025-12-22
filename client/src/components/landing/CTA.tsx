@@ -3,8 +3,9 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { useMutation } from "@tanstack/react-query";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -19,18 +20,38 @@ export default function CTA() {
     },
   });
 
+  const createLead = useMutation({
+    mutationFn: async (email: string) => {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "homepage_cta" }),
+      });
+      if (!response.ok) throw new Error("Failed to submit");
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Launch Plan Sent!",
+        description: "Check your email for your 30-day launch checklist.",
+      });
+      form.reset();
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Launch Plan Sent!",
-      description: "Check your email for your 30-day launch checklist.",
-    });
-    form.reset();
+    createLead.mutate(values.email);
   }
 
   return (
     <section className="py-24 bg-primary text-primary-foreground overflow-hidden relative">
-      {/* Decorative circles */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
@@ -55,15 +76,21 @@ export default function CTA() {
                         <Input 
                           placeholder="Enter your email address" 
                           {...field} 
+                          disabled={createLead.isPending}
                           className="bg-transparent border-none text-white placeholder:text-blue-200 focus-visible:ring-0 focus-visible:ring-offset-0 h-12 pl-6"
+                          data-testid="input-cta-email"
                         />
                       </FormControl>
-                      {/* <FormMessage className="absolute -bottom-6 left-6" /> */}
                     </FormItem>
                   )}
                 />
-                <Button type="submit" className="rounded-full bg-accent text-primary hover:bg-accent/90 font-bold px-8 h-12">
-                  Get Checklist
+                <Button 
+                  type="submit" 
+                  disabled={createLead.isPending}
+                  className="rounded-full bg-accent text-primary hover:bg-accent/90 font-bold px-8 h-12"
+                  data-testid="button-get-checklist"
+                >
+                  {createLead.isPending ? "Sending..." : "Get Checklist"}
                 </Button>
               </form>
             </Form>
