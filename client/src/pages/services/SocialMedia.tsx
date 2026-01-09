@@ -2,9 +2,26 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Share2, Users, Calendar } from "lucide-react";
+import { Calendar, Share2, Users } from "lucide-react";
+import ServicePackages from "@/components/ServicePackages";
 
 export default function SocialMedia() {
+  const packages = [
+    {
+      name: "Starter Social",
+      features: ["2 Platforms", "12 Posts/Month", "Basic Graphics", "Hashtag Strategy", "Monthly Analytics"],
+    },
+    {
+      name: "Growth Social",
+      popular: true,
+      features: ["Everything in Starter", "4 Platforms", "20 Posts/Month", "Video Content (4/mo)", "Stories & Reels", "Community Management", "Influencer Outreach"],
+    },
+    {
+      name: "Enterprise Social",
+      features: ["Everything in Growth", "Unlimited Platforms", "Daily Posting", "UGC Campaigns", "Paid Social Management", "Crisis Management", "Dedicated Manager"],
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <Navbar />
@@ -18,14 +35,14 @@ export default function SocialMedia() {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-block px-4 py-1.5 mb-6 bg-accent/20 text-accent font-semibold rounded-full text-sm">
-                Social Strategy
+                Social Media
               </div>
               <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight">
-                Build Community. <br />
-                <span className="text-accent">Drive Engagement.</span>
+                Build Your <br />
+                <span className="text-accent">Community.</span>
               </h1>
               <p className="text-lg md:text-xl text-blue-100 mb-8 max-w-lg leading-relaxed">
-                Strategic social media management that builds your brand, engages your audience, and drives real business results.
+                Strategic social media management that grows your following and turns followers into loyal customers.
               </p>
               <Button 
                 size="lg" 
@@ -72,69 +89,7 @@ export default function SocialMedia() {
         </div>
       </section>
 
-      <section id="packages" className="py-24 bg-secondary/20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
-              Social Packages
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Starter Social",
-                price: "$999/mo",
-                features: ["2 Platforms", "12 Posts/Month", "Basic Graphics", "Hashtag Strategy", "Monthly Analytics"],
-                cta: "Get Started"
-              },
-              {
-                name: "Growth Social",
-                price: "$2,499/mo",
-                popular: true,
-                features: ["Everything in Starter", "4 Platforms", "20 Posts/Month", "Video Content (4/mo)", "Stories & Reels", "Community Management", "Influencer Outreach"],
-                cta: "Most Popular"
-              },
-              {
-                name: "Enterprise Social",
-                price: "$4,999/mo",
-                features: ["Everything in Growth", "Unlimited Platforms", "Daily Posting", "UGC Campaigns", "Paid Social Management", "Crisis Management", "Dedicated Manager"],
-                cta: "Contact Us"
-              }
-            ].map((pkg, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`relative p-8 rounded-3xl border flex flex-col bg-white ${pkg.popular ? 'border-accent shadow-xl scale-105 z-10' : 'border-gray-200 shadow-sm'}`}
-              >
-                {pkg.popular && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white text-sm font-bold px-4 py-1 rounded-full shadow-md">
-                    Recommended
-                  </div>
-                )}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-primary mb-2">{pkg.name}</h3>
-                  <div className="text-3xl font-bold text-primary mb-2">{pkg.price}</div>
-                </div>
-                <ul className="space-y-4 mb-8 flex-grow">
-                  {pkg.features.map((feat, j) => (
-                    <li key={j} className="flex items-start gap-3 text-sm">
-                      <Check className={`w-5 h-5 shrink-0 ${pkg.popular ? 'text-accent' : 'text-primary/50'}`} />
-                      <span className="text-foreground/80">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className={`w-full rounded-full py-6 font-bold ${pkg.popular ? 'bg-primary hover:bg-primary/90' : 'bg-secondary hover:bg-secondary/80 text-primary'}`}>
-                  {pkg.cta}
-                </Button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicePackages title="Social Packages" packages={packages} />
 
       <Footer />
     </div>

@@ -2,9 +2,26 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Scale, FileText, Shield } from "lucide-react";
+import { Scale, FileText, Shield } from "lucide-react";
+import ServicePackages from "@/components/ServicePackages";
 
 export default function LegalCompliance() {
+  const packages = [
+    {
+      name: "Starter Legal",
+      features: ["Company Registration (PTY LTD)", "ABN/ACN Setup", "Basic Terms of Service", "Privacy Policy Template", "Director Agreements"],
+    },
+    {
+      name: "Growth Legal",
+      popular: true,
+      features: ["Everything in Starter", "Shareholder Agreement", "ESOP Framework", "Employment Contracts", "NDA Templates", "IP Assignment Deeds"],
+    },
+    {
+      name: "Enterprise Legal",
+      features: ["Everything in Growth", "International Structure", "Investment Ready Docs", "Regulatory Compliance", "Ongoing Legal Counsel", "Board Governance"],
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
       <Navbar />
@@ -75,69 +92,7 @@ export default function LegalCompliance() {
         </div>
       </section>
 
-      <section id="packages" className="py-24 bg-secondary/20">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
-              Legal Packages
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Starter Legal",
-                price: "$1,999",
-                features: ["Company Registration (PTY LTD)", "ABN/ACN Setup", "Basic Terms of Service", "Privacy Policy Template", "Director Agreements"],
-                cta: "Get Started"
-              },
-              {
-                name: "Growth Legal",
-                price: "$3,999",
-                popular: true,
-                features: ["Everything in Starter", "Shareholder Agreement", "ESOP Framework", "Employment Contracts", "NDA Templates", "IP Assignment Deeds"],
-                cta: "Most Popular"
-              },
-              {
-                name: "Enterprise Legal",
-                price: "Custom",
-                features: ["Everything in Growth", "International Structure", "Investment Ready Docs", "Regulatory Compliance", "Ongoing Legal Counsel", "Board Governance"],
-                cta: "Contact Us"
-              }
-            ].map((pkg, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`relative p-8 rounded-3xl border flex flex-col bg-white ${pkg.popular ? 'border-accent shadow-xl scale-105 z-10' : 'border-gray-200 shadow-sm'}`}
-              >
-                {pkg.popular && (
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white text-sm font-bold px-4 py-1 rounded-full shadow-md">
-                    Recommended
-                  </div>
-                )}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-primary mb-2">{pkg.name}</h3>
-                  <div className="text-3xl font-bold text-primary mb-2">{pkg.price}</div>
-                </div>
-                <ul className="space-y-4 mb-8 flex-grow">
-                  {pkg.features.map((feat, j) => (
-                    <li key={j} className="flex items-start gap-3 text-sm">
-                      <Check className={`w-5 h-5 shrink-0 ${pkg.popular ? 'text-accent' : 'text-primary/50'}`} />
-                      <span className="text-foreground/80">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className={`w-full rounded-full py-6 font-bold ${pkg.popular ? 'bg-primary hover:bg-primary/90' : 'bg-secondary hover:bg-secondary/80 text-primary'}`}>
-                  {pkg.cta}
-                </Button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicePackages title="Legal Packages" packages={packages} />
 
       <Footer />
     </div>

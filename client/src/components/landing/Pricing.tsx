@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Phone } from "lucide-react";
 
 const plans = [
   {
     name: "Starter",
-    price: "$4,999",
     desc: "Perfect for solopreneurs ready to professionalize.",
     features: [
       "Company Registration",
@@ -14,13 +13,12 @@ const plans = [
       "Legal Starter Pack",
       "Basic Bookkeeping Setup"
     ],
-    cta: "Start Launch",
+    cta: "Book Discovery Call",
     popular: false,
     gradient: "from-slate-500 to-slate-600",
   },
   {
     name: "Growth",
-    price: "$9,999",
     desc: "The complete package for funded startups.",
     features: [
       "Everything in Starter",
@@ -30,13 +28,12 @@ const plans = [
       "Shareholder Agreements",
       "3 Months Bookkeeping"
     ],
-    cta: "Go Growth",
+    cta: "Book Discovery Call",
     popular: true,
     gradient: "from-accent to-orange-500",
   },
   {
     name: "Premium",
-    price: "Custom",
     desc: "Tailored solutions for complex ventures.",
     features: [
       "Everything in Growth",
@@ -46,7 +43,7 @@ const plans = [
       "International Structuring",
       "Dedicated Success Manager"
     ],
-    cta: "Contact Us",
+    cta: "Book Discovery Call",
     popular: false,
     gradient: "from-purple-500 to-indigo-600",
   },
@@ -101,17 +98,16 @@ export default function Pricing() {
             viewport={{ once: true }}
             className="inline-block px-4 py-1.5 mb-6 bg-primary/10 text-primary font-semibold rounded-full text-sm"
           >
-            Pricing
+            Our Packages
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-            Transparent,{" "}
+            Tailored Solutions{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-              All-Inclusive
-            </span>{" "}
-            Packages
+              For Your Business
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Predictable pricing for every stage of your journey. No hidden fees, ever.
+            Every business is unique. Let's discuss your needs and create a custom package that fits your goals and budget.
           </p>
         </motion.div>
 
@@ -156,18 +152,16 @@ export default function Pricing() {
                   </>
                 )}
                 
-                <div className="mb-8 relative z-10">
-                  <h3 className="text-xl font-bold text-primary mb-2">{plan.name}</h3>
-                  <motion.div 
-                    className="text-5xl font-bold text-primary mb-3"
-                    initial={{ scale: 0.9 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.1, type: "spring" }}
-                  >
-                    {plan.price}
-                  </motion.div>
+                <div className="mb-6 relative z-10">
+                  <h3 className="text-2xl font-bold text-primary mb-3">{plan.name}</h3>
                   <p className="text-muted-foreground">{plan.desc}</p>
+                </div>
+
+                <div className="mb-6 py-4 border-y border-gray-100 relative z-10">
+                  <div className="flex items-center gap-2 text-primary">
+                    <Phone className="w-5 h-5 text-accent" />
+                    <span className="font-semibold">Contact us for pricing</span>
+                  </div>
                 </div>
 
                 <ul className="space-y-4 mb-8 flex-grow relative z-10">
@@ -212,16 +206,25 @@ export default function Pricing() {
           ))}
         </motion.div>
 
-        <motion.p 
+        <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="text-center mt-12 text-muted-foreground"
+          className="text-center mt-12"
         >
-          All packages include a 30-day money-back guarantee.{" "}
-          <a href="/#faq" className="text-accent font-semibold hover:underline">View FAQ →</a>
-        </motion.p>
+          <p className="text-muted-foreground mb-4">
+            Not sure which package is right for you?
+          </p>
+          <Button 
+            variant="outline" 
+            className="rounded-full px-8"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <Phone className="w-4 h-4 mr-2" />
+            Schedule a Free Discovery Call
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
